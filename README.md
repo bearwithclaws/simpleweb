@@ -18,7 +18,19 @@ Visit http://localhost:3000
 
 Use [SimpLESS](http://wearekiss.com/simpless).
 
+## Deploy to Heroku
+
+### Database (Redis)
+
+1. Add Redis Cloud (free) on Heroku:
+
+        heroku addons:add rediscloud:20
+
+
+2. Test
+
 ## Database
+
 
 - TODO: add redis/mongodb integration (ready for Heroku)
 

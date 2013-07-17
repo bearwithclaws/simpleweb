@@ -5,6 +5,7 @@
         [hiccup.core :only [html]]
         [hiccup.page :only [html5 include-css include-js]])
   (:require [org.httpkit.server :as server]
+            [clojure.string :as str]
             [clojure.tools.nrepl.server :as nrepl]
             [cemerick.shoreleave.rpc :refer (defremote) :as rpc]
             [ring.middleware.reload :as reload]
@@ -17,8 +18,15 @@
 (defonce counter (atom 0))
 
 ;; A Redis connection with Carmine
+
+(defn conn-spec []
+  (let [url (System/getenv "REDISCLOUD_URL")]
+  (if-not (str/blank? url)
+    (car/make-conn-spec :uri url)
+    (car/make-conn-spec))))
+
 (defonce redis-pool (car/make-conn-pool))
-(def redis-server-spec (car/make-conn-spec))
+(def redis-server-spec (conn-spec))
 (defmacro with-car [& body] `(car/with-conn redis-pool redis-server-spec ~@body))
 
 ;; templates
