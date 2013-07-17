@@ -1,17 +1,21 @@
 # simpleweb
 
-Reference clojure + clojurescript web app
-
-## Prerequisites
-
-You will need [Leiningen][1] 2.0.0 or above installed.
-
-[1]: https://github.com/technomancy/leiningen
+Simple clojure + clojurescript boilerplate web app.
 
 ## Running
 
     lein run
 
-## License
+Visit http://localhost:3000
 
-Copyright © 2013 FIXME
+## Auto-compile Clojurescript
+    
+    lein cljsbuild auto
+
+## Database
+
+- TODO: add redis/mongodb integration (ready for Heroku)
+
+## Authentication
+
+- TODO: add basic http authentication
