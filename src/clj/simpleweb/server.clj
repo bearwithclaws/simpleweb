@@ -23,7 +23,17 @@
      (include-css "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css"
                   "/css/styles.css")]
     [:body
-     [:div.container]
+     [:div.navbar.navbar-inverse.navbar-fixed-top
+      [:div.navbar-inner
+       [:div.container
+        [:a.brand {:href "/"} "Simple Web"]
+        [:div.nav-collapse.collapse
+         [:ul.nav
+          [:li [:a {:href "#"} "Link 1"]
+          [:li [:a {:href "#"} "Link 2"]]]]]]]]
+      [:div.container
+       [:h1 "Boostrap Starter Template"]
+       [:p "Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document."]]
      (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
      (include-js "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js")
      (include-js "/js/cljs.js")
