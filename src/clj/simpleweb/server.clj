@@ -19,13 +19,11 @@
 (defn index []
   (html
     [:head
-     [:title "Simple Clojure Webapp Example"]
+     [:title "Simple Clojure Web App"]
      (include-css "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css"
                   "/css/styles.css")]
     [:body
-     [:div.container
-      [:div.content "counter: " [:span#counter @counter]]
-      [:button.btn "click me"]]
+     [:div.container]
      (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
      (include-js "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js")
      (include-js "/js/cljs.js")
@@ -34,8 +32,6 @@
 ;; handler
 
 ; remotes
-(defremote inc-counter []
-  (swap! counter inc))
 
 ; routes
 (defroutes app-routes

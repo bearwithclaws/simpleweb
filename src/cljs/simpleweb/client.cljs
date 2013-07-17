@@ -5,8 +5,8 @@
 
 (set! shoreleave.remotes.http-rpc/*remote-uri* "/_fetch")
 
-(defn handle-click []
-  (rpc/remote-callback
-        :inc-counter [] #(text ($ :#counter) %)))
+; (defn handle-click []
+;   (rpc/remote-callback
+;         :inc-counter [] #(text ($ :#counter) %)))
 
-(.click ($ :.btn) handle-click)
+; (.click ($ :.btn) handle-click)

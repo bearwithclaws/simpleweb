@@ -8,9 +8,15 @@ Simple clojure + clojurescript boilerplate web app.
 
 Visit http://localhost:3000
 
-## Auto-compile Clojurescript
+## Auto-compiling
+
+### Clojurescript
     
     lein cljsbuild auto
+
+### LESS
+
+Use [SimpLESS](http://wearekiss.com/simpless).
 
 ## Database
 
