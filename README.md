@@ -22,18 +22,6 @@ Use [SimpLESS](http://wearekiss.com/simpless).
 
 ### Database (Redis)
 
-1. Add Redis Cloud (free) on Heroku:
+Add Redis Cloud (free) on Heroku:
 
-        heroku addons:add rediscloud:20
-
-
-2. Test
-
-## Database
-
-
-- TODO: add redis/mongodb integration (ready for Heroku)
-
-## Authentication
-
-- TODO: add basic http authentication
+    heroku addons:add rediscloud:20

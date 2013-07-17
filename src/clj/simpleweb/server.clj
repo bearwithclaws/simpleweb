@@ -18,7 +18,6 @@
 (defonce counter (atom 0))
 
 ;; A Redis connection with Carmine
-
 (defn conn-spec []
   (let [url (System/getenv "REDISCLOUD_URL")]
   (if-not (str/blank? url)
