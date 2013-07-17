@@ -11,7 +11,8 @@
                  [shoreleave/shoreleave-remote "0.3.0"]
                  [com.cemerick/shoreleave-remote-ring "0.0.2"]
                  [jayq "2.0.0"]
-                 [org.clojure/tools.nrepl "0.2.3"]]
+                 [org.clojure/tools.nrepl "0.2.3"]
+                 [com.taoensso/carmine "1.12.0"]]
   :plugins [[lein-ring "0.8.5"]
             [lein-cljsbuild "0.3.2"]]
   :main simpleweb.server

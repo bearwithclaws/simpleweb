@@ -9,11 +9,17 @@
             [cemerick.shoreleave.rpc :refer (defremote) :as rpc]
             [ring.middleware.reload :as reload]
             [compojure.handler :as handler]
-            [compojure.route :as route]))
+            [compojure.route :as route]
+            [taoensso.carmine :as car]))
 
 ;; state
 (defonce prod? (atom (System/getenv "LEIN_NO_DEV")))
 (defonce counter (atom 0))
+
+;; A Redis connection with Carmine
+(defonce redis-pool (car/make-conn-pool))
+(def redis-server-spec (car/make-conn-spec))
+(defmacro with-car [& body] `(car/with-conn redis-pool redis-server-spec ~@body))
 
 ;; templates
 (defn index []
@@ -33,6 +39,8 @@
           [:li [:a {:href "#"} "Link 2"]]]]]]]]
       [:div.container
        [:h1 "Boostrap Starter Template"]
+       ; testing redis integration
+       [:div (str (with-car (car/incr "test-id")) " ring(s) to rule them all.")]
        [:p "Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document."]]
      (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
      (include-js "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js")
