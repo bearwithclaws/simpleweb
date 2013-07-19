@@ -8,6 +8,7 @@
             [clojure.string :as str]
             [clojure.tools.nrepl.server :as nrepl]
             [cemerick.shoreleave.rpc :refer (defremote) :as rpc]
+            [ring.middleware.basic-authentication :as auth]
             [ring.middleware.reload :as reload]
             [compojure.handler :as handler]
             [compojure.route :as route]
@@ -59,8 +60,14 @@
 ; remotes
 
 ; routes
+
+(defn authenticated? [name pass]
+  (and (= name (or (System/getenv "ADMIN_USER") "foo"))
+       (= pass (or (System/getenv "ADMIN_PW") "bar"))))
+
 (defroutes app-routes
-  (GET "/" [] (index))
+  (auth/wrap-basic-authentication
+    (GET "/" [] (index)) authenticated?)
   (route/resources "/")
   (route/not-found "Not Found"))
 
